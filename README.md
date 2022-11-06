@@ -25,9 +25,23 @@ Once you have installed Plover Python Dictionary, you should be able to add the
 `chidori.py` file to your Plover dictionaries in the same way you would a
 [JSON][] or [Rich Text Format][] (RTF) dictionary.
 
-In my [dictionary stack][], Chidori is disabled by default. I use a
-[Google IME-specific dictionary][] to toggle them on and off. Feel free to use
-Chidori the way I do, or customise to your liking.
+## Usage
+
+In my [dictionary stack][], Chidori is disabled by default. I use [Google
+IME-specific dictionary entries][] to toggle both the IME and Chidori at the
+same time whenever I want to write in **J**a**P**a**N**ese:
+
+```yaml
+"SKWR-PB": "{:COMMAND:TOGGLE_DICT:+chidori.py}{#CONTROL(SHIFT(J))}"         # toggle JaPaNese on
+"SKWR*PB": "{:COMMAND:TOGGLE_DICT:-chidori.py}{#CONTROL(SHIFT(SEMICOLON))}" # toggle JaPaNese off
+```
+
+The chords above use both the [Plover Dict Commands][] plugin to toggle the
+`chidori.py` dictionary and Google IME commands to switch between its
+Alphanumeric and Hiragana modes.
+
+Feel free to use Chidori the way I do, or customise the switch from "English
+mode" to "Japanese mode" to your liking.
 
 ## Chords
 
@@ -253,10 +267,10 @@ python -m unittest
 [chōonpu]: https://en.wikipedia.org/wiki/Ch%C5%8Donpu
 [dakuten]: https://en.wikipedia.org/wiki/Dakuten_and_handakuten
 [devoicing]: https://en.wikipedia.org/wiki/Japanese_phonology#Devoicing
-[dictionary stack]: ../../dictionaries/README.md#standing-on-the-shoulders-of-others
+[dictionary stack]: https://github.com/paulfioravanti/steno-dictionaries/blob/main/dictionaries/README.md#standing-on-the-shoulders-of-others
 [`FINAL_ROMAJI` constant]: ./chidori.py#L157
 [Google IME]: https://www.google.co.jp/ime/
-[Google IME-specific dictionary]: ../../dictionaries/japanese/japanese-google-ime.json
+[Google IME-specific dictionary entries]: https://github.com/paulfioravanti/steno-dictionaries/blob/main/dictionaries/command.md#google-ime
 [handakuten]: https://en.wikipedia.org/wiki/Dakuten_and_handakuten
 [Hepburn romanization]: https://en.wikipedia.org/wiki/Hepburn_romanization
 [`INITIAL_ROMAJI` constant]: ./chidori.py#L107
@@ -266,6 +280,7 @@ python -m unittest
 [Microsoft Japanese IME]: https://support.microsoft.com/en-us/windows/microsoft-japanese-ime-da40471d-6b91-4042-ae8b-713a96476916
 [phonetic shift]: https://en.wikipedia.org/wiki/Dakuten_and_handakuten#Phonetic_shifts
 [Plover]: https://github.com/openstenoproject/plover
+[Plover Dict Commands]: https://github.com/KoiOates/plover_dict_commands
 [Plover fingerspelling conventions]: https://www.artofchording.com/sounds/fingerspelling.html
 [plover_japanese_kana]: https://github.com/Willem3141/plover_japanese_kana
 [Plover Python Dictionary]: https://github.com/benoit-pierre/plover_python_dictionary
